@@ -3,6 +3,7 @@ import os.path as osp
 
 import torch
 import torch.nn.functional as F
+import torch_geometric
 import torch_geometric.transforms as T
 from torch_geometric.datasets import Planetoid
 from torch_geometric.utils import degree
@@ -35,11 +36,11 @@ def transform(data):
 class MoNet(torch.nn.Module):
     def __init__(self, dataset):
         super(MoNet, self).__init__()
-        self.conv1 = GMMConv(dataset.num_features,
+        self.conv1 = torch_geometric.nn.GMMConv(dataset.num_features,
                              args.hidden,
                              dim=2,
                              kernel_size=args.kernel_size)
-        self.conv2 = GMMConv(args.hidden,
+        self.conv2 = torch_geometric.nn.GMMConv(args.hidden,
                              dataset.num_classes,
                              dim=2,
                              kernel_size=args.kernel_size)
