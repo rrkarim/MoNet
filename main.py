@@ -13,7 +13,7 @@ from conv import GMMConv
 
 parser = argparse.ArgumentParser(description='Cora citation network')
 parser.add_argument('--dataset', type=str, default='Cora')
-parser.add_argument('--device_idx', type=int, default=1)
+parser.add_argument('--device_idx', type=int, default=0)
 parser.add_argument('--runs', type=int, default=10)
 parser.add_argument('--early_stopping', type=int, default=50)
 parser.add_argument('--epochs', type=int, default=3000)
